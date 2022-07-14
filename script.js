@@ -10,10 +10,14 @@ function loadContacts() {
 
         const bgPic = document.createElement("div");
         bgPic.classList.add("bg__pic");
+        bgPic.style.backgroundImage = "url(" + contact.backgroundImage + ")";
 
         const profilePic = document.createElement("img");
         profilePic.classList.add("contact__pic");
         profilePic.setAttribute("src", contact.picture);
+
+        const nameWrap = document.createElement("div");
+        nameWrap.classList.add("namewrap");
 
         const name = document.createElement("h2");
         name.classList.add("contact__name");
@@ -37,14 +41,13 @@ function loadContacts() {
         connectBtn.classList.add("connect");
         connectBtn.innerText = "Connect";
 
-        card.append(
-          bgPic,
-          profilePic,
-          name,
-          position,
-          mutualContacts,
-          connectBtn
-        );
+        const closeButton = document.createElement("button");
+        closeButton.classList.add("close");
+        closeButton.innerText = "X";
+
+        nameWrap.append(name, position, mutualContacts, connectBtn);
+
+        card.append(bgPic, closeButton, profilePic, nameWrap);
         contactPreview.appendChild(card);
       }
     });
