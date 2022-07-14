@@ -25,16 +25,27 @@ body {
 .contact__pic {
   width: 100px;
   border-radius: 50%;
+  position: relative;
 }
 .contact__card {
+  position: relative;
   padding: 1rem;
   max-width: 200px;
   height: 300px;
   text-align: center;
   border: 1px solid rgb(156, 155, 155);
   border-radius: 10px;
+}
+.bg__pic {
   background-image: url(https://images.unsplash.com/photo-1655826526409-6dd68d56cd78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NzgwNDg1Mg&ixlib=rb-1.2.1&q=80&w=1080);
-  background-size: 30%;
+  width: 198px;
+  height: 70px;
+  position: absolute;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+
+  left: 0;
+  top: 0;
 }
 .contact__name {
   font-size: 1.3em;
@@ -44,4 +55,13 @@ body {
 }
 .contact__position {
   margin-bottom: 1.5em;
+}
+.connect {
+  all: unset;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 1px solid rgb(12, 112, 170);
+  color: rgb(12, 112, 170);
+  padding: 0.3rem 3rem;
+  border-radius: 20px;
 }
