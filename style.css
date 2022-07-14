@@ -1,0 +1,47 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200italic,300,300italic,regular,italic,600,600italic,700,700italic,900,900italic);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: Source Sans Pro;
+}
+body {
+  padding: 2rem;
+  background-color: rgb(236, 233, 233);
+}
+.container {
+  border: 1px solid rgb(156, 155, 155);
+  min-width: 90%;
+  border-radius: 5px;
+  background-color: snow;
+  padding: 1rem;
+}
+.headwrap {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.contact__pic {
+  width: 100px;
+  border-radius: 50%;
+}
+.contact__card {
+  padding: 1rem;
+  max-width: 200px;
+  height: 300px;
+  text-align: center;
+  border: 1px solid rgb(156, 155, 155);
+  border-radius: 10px;
+  background-image: url(https://images.unsplash.com/photo-1655826526409-6dd68d56cd78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NzgwNDg1Mg&ixlib=rb-1.2.1&q=80&w=1080);
+  background-size: 30%;
+}
+.contact__name {
+  font-size: 1.3em;
+}
+.mutual__contacts {
+  margin-bottom: 1.5em;
+}
+.contact__position {
+  margin-bottom: 1.5em;
+}
