@@ -26,6 +26,7 @@ body {
   justify-content: space-between;
   font-weight: bold;
   margin-bottom: 1rem;
+  align-items: center;
 }
 .contact__pic {
   width: 100px;
@@ -103,4 +104,10 @@ body {
 }
 .close:active {
   background-color: white;
+}
+
+.see__all {
+  all: unset;
+  font-size: 1.5rem;
+  color: rgb(12, 112, 170);
 }
