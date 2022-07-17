@@ -43,12 +43,7 @@ function renderContacts() {
 
     const bgPic = document.createElement("div");
     bgPic.classList.add("bg__pic");
-    bgPic.style.backgroundImage = "url(" + contact.backgroundImage + ")";
-
-    if (contact.backgroundImage === "") {
-      bgPic.style.backgroundImage =
-        "url(https://source.unsplash.com/random/300×300)";
-    }
+    bgPic.style.backgroundImage = fillBackground(contact);
 
     const profilePic = document.createElement("img");
     profilePic.classList.add("contact__pic");
@@ -132,4 +127,21 @@ function loadSingleContact() {
       contacts.push(contactsData[0]);
       renderContacts();
     });
+}
+
+function fillBackground(contact) {
+  let url = "";
+
+  url =
+    "url(https://source.unsplash.com/random/" +
+    randomnessForUrl(600, 300) +
+    "x" +
+    randomnessForUrl(600, 300) +
+    ")";
+
+  return url;
+}
+
+function randomnessForUrl(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
