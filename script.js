@@ -1,4 +1,14 @@
 const contactPreview = document.querySelector(".contact__preview");
+const pendingText = document.querySelector(".number__of__pending");
+let numOfPending = 0;
+
+if (numOfPending < 1) {
+  pendingText.innerText = "No pending invitations";
+} else if (numOfPending === 1) {
+  pendingText.innerText = "1 pending invitation";
+} else {
+  pendingText.innerText = numOfPending + " pending invitations";
+}
 
 let contacts = [];
 
@@ -20,11 +30,11 @@ function renderContacts() {
 
     const bgPic = document.createElement("div");
     bgPic.classList.add("bg__pic");
+    bgPic.style.backgroundImage = "url(" + contact.backgroundImage + ")";
+
     if (contact.backgroundImage === "") {
       bgPic.style.backgroundImage =
         "url(https://source.unsplash.com/random/300×300)";
-    } else {
-      bgPic.style.backgroundImage = "url(" + contact.backgroundImage + ")";
     }
 
     const profilePic = document.createElement("img");
@@ -52,6 +62,37 @@ function renderContacts() {
     const connectBtn = document.createElement("button");
     connectBtn.classList.add("connect");
     connectBtn.innerText = "Connect";
+    connectBtn.addEventListener("click", () => {
+      if (connectBtn.innerText === "Connect") {
+        connectBtn.innerText = "Pending";
+        connectBtn.style.color = "rgb(156, 155, 155)";
+        numOfPending += 1;
+      } else {
+        connectBtn.innerText = "Connect";
+        connectBtn.style.color = "rgb(12, 112, 170)";
+        if (numOfPending === 0) {
+          numOfPending = 0;
+        } else {
+          numOfPending -= 1;
+        }
+        if (numOfPending < 1) {
+          pendingText.innerText = "No pending invitations";
+        } else if (numOfPending === 1) {
+          pendingText.innerText = "1 pending invitation";
+        } else {
+          pendingText.innerText = numOfPending + " pending invitations";
+        }
+      }
+
+      if (numOfPending < 1) {
+        pendingText.innerText = "No pending invitations";
+      } else if (numOfPending === 1) {
+        pendingText.innerText = "1 pending invitation";
+      } else {
+        pendingText.innerText = numOfPending + " pending invitations";
+      }
+      console.log(numOfPending);
+    });
 
     const closeButton = document.createElement("button");
     closeButton.classList.add("close");
