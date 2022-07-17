@@ -1,13 +1,26 @@
 const contactPreview = document.querySelector(".contact__preview");
 const pendingText = document.querySelector(".number__of__pending");
-let numOfPending = 0;
 
-if (numOfPending < 1) {
+function addNumOfPendingLocalStorage() {
+  JSON.stringify(localStorage.setItem("pending", numOfPending));
+}
+function getNumOfPending() {
+  let numOfPending = 0;
+  const localNumOfPending = JSON.parse(localStorage.getItem("pending"));
+  if (localNumOfPending) {
+    numOfPending = localNumOfPending;
+  }
+  return numOfPending;
+}
+
+getNumOfPending();
+
+if (getNumOfPending() < 1) {
   pendingText.innerText = "No pending invitations";
-} else if (numOfPending === 1) {
+} else if (getNumOfPending() === 1) {
   pendingText.innerText = "1 pending invitation";
 } else {
-  pendingText.innerText = numOfPending + " pending invitations";
+  pendingText.innerText = getNumOfPending() + " pending invitations";
 }
 
 let contacts = [];
@@ -66,22 +79,22 @@ function renderContacts() {
       if (connectBtn.innerText === "Connect") {
         connectBtn.innerText = "Pending";
         connectBtn.style.color = "rgb(156, 155, 155)";
+        numOfPending = getNumOfPending();
         numOfPending += 1;
+        addNumOfPendingLocalStorage(numOfPending);
       } else {
         connectBtn.innerText = "Connect";
         connectBtn.style.color = "rgb(12, 112, 170)";
-        if (numOfPending === 0) {
-          numOfPending = 0;
-        } else {
-          numOfPending -= 1;
-        }
-        if (numOfPending < 1) {
-          pendingText.innerText = "No pending invitations";
-        } else if (numOfPending === 1) {
-          pendingText.innerText = "1 pending invitation";
-        } else {
-          pendingText.innerText = numOfPending + " pending invitations";
-        }
+        numOfPending = getNumOfPending();
+        numOfPending -= 1;
+        addNumOfPendingLocalStorage(numOfPending);
+      }
+      if (numOfPending < 1) {
+        pendingText.innerText = "No pending invitations";
+      } else if (numOfPending === 1) {
+        pendingText.innerText = "1 pending invitation";
+      } else {
+        pendingText.innerText = numOfPending + " pending invitations";
       }
 
       if (numOfPending < 1) {
@@ -91,7 +104,6 @@ function renderContacts() {
       } else {
         pendingText.innerText = numOfPending + " pending invitations";
       }
-      console.log(numOfPending);
     });
 
     const closeButton = document.createElement("button");
