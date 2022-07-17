@@ -1,0 +1,176 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200italic,300,300italic,regular,italic,600,600italic,700,700italic,900,900italic);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: Source Sans Pro;
+}
+body {
+  padding: 2rem;
+  background-color: rgb(236, 233, 233);
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 90vh;
+}
+.container {
+  border: 1px solid rgb(156, 155, 155);
+
+  max-width: 90vw;
+  border-radius: 5px;
+  background-color: snow;
+  padding: 1rem;
+}
+.headwrap {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+.contact__pic {
+  width: 100px;
+  border-radius: 50%;
+  position: relative;
+}
+.contact__card {
+  position: relative;
+  padding: 1rem;
+  background-color: rgba(243, 243, 242, 0.301);
+  max-width: 200px;
+  height: 310px;
+  text-align: center;
+  border: 1px solid rgb(156, 155, 155);
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+.bg__pic {
+  width: 198px;
+  height: 70px;
+  position: absolute;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+
+  left: 0;
+  top: 0;
+}
+.contact__name {
+  font-size: 1.3em;
+}
+.namewrap {
+  display: grid;
+  grid-template-rows: 1.5fr 1.2fr 1fr 1fr;
+}
+.mutual__contacts {
+  font-size: 0.9rem;
+}
+.connect {
+  all: unset;
+
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 1px solid rgb(12, 112, 170);
+  color: rgb(12, 112, 170);
+  padding: 0.3rem 3rem;
+  border-radius: 20px;
+  transition: 0.2s ease;
+}
+.contact__preview {
+  max-width: 90vw;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}
+
+.close {
+  all: unset;
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  border: 1px solid gray;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em;
+  color: snow;
+  background-color: rgb(73, 71, 71);
+  opacity: 0.6;
+  transition: 0.2s ease;
+}
+
+.close:hover {
+  transition: 0.2s ease;
+  transform: scale(1.2);
+  opacity: 1;
+}
+.close:active {
+  background-color: white;
+}
+
+.see__all {
+  all: unset;
+  font-size: 1.5rem;
+  color: rgb(156, 155, 155);
+}
+
+.pending__wrap {
+  max-width: 950px;
+  border: 1px solid rgb(156, 155, 155);
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: snow;
+  display: flex;
+  justify-content: space-between;
+}
+.manage__button {
+  all: unset;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: 0.1s ease;
+  color: rgb(156, 155, 155);
+}
+
+.connect:hover {
+  transform: scale(1.1);
+  box-shadow: 1px 2px rgb(156, 155, 155);
+}
+
+.manage__button:hover,
+.see__all:hover {
+  transform: scale(1.1);
+  transition: 0.1s ease;
+}
+
+.contact__card:hover,
+.contact__card:focus {
+  box-shadow: 0 0 8px 2px rgb(12, 112, 170);
+  transition: 0.2s ease;
+}
+
+@media screen and (max-width: 980px) {
+  .contact__preview {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 750px) {
+  .contact__preview {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 500px) {
+  .contact__preview {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+  }
+}
