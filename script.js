@@ -11,6 +11,7 @@ function loadContacts() {
       renderContacts();
     });
 }
+loadContacts();
 
 function renderContacts() {
   for (let contact of contacts) {
@@ -19,7 +20,12 @@ function renderContacts() {
 
     const bgPic = document.createElement("div");
     bgPic.classList.add("bg__pic");
-    bgPic.style.backgroundImage = "url(" + contact.backgroundImage + ")";
+    if (contact.backgroundImage === "") {
+      bgPic.style.backgroundImage =
+        "url(https://source.unsplash.com/random/300×300)";
+    } else {
+      bgPic.style.backgroundImage = "url(" + contact.backgroundImage + ")";
+    }
 
     const profilePic = document.createElement("img");
     profilePic.classList.add("contact__pic");
@@ -41,7 +47,7 @@ function renderContacts() {
     mutualContacts.classList.add("mutual__contacts");
 
     mutualContacts.innerText =
-      contact.mutualConnections + " mutual connection/s";
+      "⊶ " + contact.mutualConnections + " mutual connection/s";
 
     const connectBtn = document.createElement("button");
     connectBtn.classList.add("connect");
@@ -61,7 +67,6 @@ function renderContacts() {
 
 function closeContact(e) {
   const removedContact = e.target.parentElement;
-  console.log(removedContact);
   removedContact.remove();
   loadSingleContact();
 }
@@ -75,5 +80,3 @@ function loadSingleContact() {
       renderContacts();
     });
 }
-
-loadContacts();

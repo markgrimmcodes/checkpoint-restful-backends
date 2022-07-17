@@ -60,6 +60,9 @@ body {
   display: grid;
   grid-template-rows: 1.5fr 1.2fr 1fr 1fr;
 }
+.mutual__contacts {
+  font-size: 0.9rem;
+}
 .connect {
   all: unset;
 
