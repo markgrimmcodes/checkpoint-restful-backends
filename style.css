@@ -10,15 +10,15 @@ body {
   padding: 2rem;
   background-color: rgb(236, 233, 233);
   display: grid;
-  gap: 1rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 .container {
   border: 1px solid rgb(156, 155, 155);
 
-  max-width: 950px;
+  max-width: 90vw;
   border-radius: 5px;
   background-color: snow;
   padding: 1rem;
@@ -44,6 +44,7 @@ body {
   text-align: center;
   border: 1px solid rgb(156, 155, 155);
   border-radius: 10px;
+  transition: 0.2s ease;
 }
 .bg__pic {
   width: 198px;
@@ -77,6 +78,7 @@ body {
   transition: 0.2s ease;
 }
 .contact__preview {
+  max-width: 90vw;
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -145,3 +147,29 @@ body {
   transform: scale(1.1);
   transition: 0.1s ease;
 }
+
+.contact__card:hover,
+.contact__card:focus {
+  box-shadow: 0 0 8px 2px rgb(12, 112, 170);
+  transition: 0.2s ease;
+}
+
+@media screen and (max-width: 980px) {
+  .contact__preview {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 750px) {
+  .contact__preview {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 500px) {
+  .contact__preview {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+  }
+  
