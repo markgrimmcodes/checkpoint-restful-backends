@@ -30,7 +30,6 @@ function loadContacts() {
     .then((response) => response.json())
     .then((contactsData) => {
       contacts.push(...contactsData);
-      console.log(contacts);
       renderContacts();
     });
 }
